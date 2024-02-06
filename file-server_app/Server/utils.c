@@ -166,20 +166,6 @@ void send_response(char *buffer, int client_socket, int total)
                 exit(EXIT_FAILURE);
             }
 
-            /*int log_fd = open("testing.txt", O_WRONLY | O_APPEND);
-            if (log_fd == -1)
-            {
-                perror("Eroare open!(LOG_FILE)\n");
-                exit(EXIT_FAILURE);
-            }
-
-            int bytesWrite = write(log_fd, buffer_response, strlen(buffer_response));
-            if (bytesWrite < 0)
-            {
-                perror("Eroare write!(LOG_FILE)\n");
-                exit(EXIT_FAILURE);
-            }*/
-
             char *buffer_response_final = (char *)malloc(sizeof(char) * BUFFER_SIZE);
             memset(buffer_response_final, 0, BUFFER_SIZE);
 
@@ -208,8 +194,6 @@ void send_response(char *buffer, int client_socket, int total)
             memset(buffer_response, 0, BUFFER_SIZE);
 
             update_log("1", p);
-
-            //
 
             for (int i = 0; i < numar_fisiere; i++)
             {
@@ -258,7 +242,6 @@ void send_response(char *buffer, int client_socket, int total)
                     free(buffer_response);
                     free(buffer_file_content);
 
-                    //
                     f[i].read--;
                     if (f[i].read == 0)
                     {
@@ -566,7 +549,6 @@ void send_response(char *buffer, int client_socket, int total)
 
                         f[i].write--;
                         pthread_cond_broadcast(&f[i].f_cond);
-                        // Anuntam toate thread urile
                         pthread_mutex_unlock(&f[i].f_mutex);
 
                         snprintf(buffer_response, 10, "10|0|6|");
@@ -865,7 +847,6 @@ void *index_thread_function(void *vargp)
         need_update = 0;
         pthread_mutex_unlock(&mutex_index);
 
-        //
         for (int i = 0; i < *(data->numarFisiere); i++)
         {
             if (strcmp(data->fisiere->file_name, "hidden") != 0)
@@ -873,7 +854,6 @@ void *index_thread_function(void *vargp)
         }
 
         printf("*Specialised thread reindexed files!*\n");
-        //
     }
 
     return NULL;
