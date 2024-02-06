@@ -9,35 +9,34 @@
 	int yylex();
 	int yyerror(const char *msg);
 
-	int intraInIF =0;
-    int EsteCorecta = 1;
+	int intraInIF = 0;
+   	int EsteCorecta = 1;
 	char msg[500];
 
 	class TVAR
 	{
 	    char* nume;
-    	int intValoare;
-    	float floatValoare;
-    	double doubleValoare;
-    	int tipValoare; 
+    		int intValoare;
+    		float floatValoare;
+    		double doubleValoare;
+    		int tipValoare; 
 		//0 pentru int, 1 pentru float, 2 pentru double
     	TVAR* next;
 	  
 	public:
-	    static TVAR* head;
-	    static TVAR* tail;
-
-	    TVAR(char* n);
-	    TVAR();
-	    int exists(char* n);
-        void add(char* n, int tip, int intVal= -1,float floatVal= 0.0f, double doubleVal= 0.0);
+	    	static TVAR* head;
+		static TVAR* tail;
+	        TVAR(char* n);
+	        TVAR();
+	        int exists(char* n);
+                void add(char* n, int tip, int intVal= -1,float floatVal= 0.0f, double doubleVal= 0.0);
 		int getTipValue(char* n);
 		int getIntValue(char *n);
 		float getFloatValue(char* n);
 		double getDoubleValue(char* n);
-	    void setValue(char* n, int v);
+	        void setValue(char* n, int v);
 		void setValue(char* n, float v);
-    	void setValue(char* n, double v);
+    	        void setValue(char* n, double v);
 		void printVars();
 	};
 
