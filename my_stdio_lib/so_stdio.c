@@ -111,10 +111,6 @@ int so_fclose(SO_FILE *stream)
         free(stream);
         stream = NULL;
     }
-    // else
-    //     return 0;
-    //  else
-    //{
 
     if (stream == NULL)
     {
@@ -125,7 +121,6 @@ int so_fclose(SO_FILE *stream)
         free(stream);
         stream = NULL;
     }
-    //}
 
     return 0; // Succes
 }
@@ -208,12 +203,7 @@ size_t so_fread(void *ptr, size_t size, size_t nmemb, SO_FILE *stream)
     {
         int character = so_fgetc(stream);
         stream->_file_pos++;
-
-        // if (character == SO_EOF)
-        //{
-        // break;
-        //}
-
+        
         if (stream->_error == 1)
         {
             free(aux);
@@ -306,7 +296,7 @@ int so_fgetc(SO_FILE *stream)
     /*If the failure has been caused by end-of-file condition,
     additionally sets the eof indicator (see feof()) on stream.*/
     if (stream->_buffer[stream->_buffer_pos] == '\0')
-    { // Test 34
+    {
         stream->_eof = 1;
         return SO_EOF;
     }
@@ -332,22 +322,9 @@ int so_fputc(int c, SO_FILE *stream)
     }
 
     stream->_buffer[stream->_buffer_pos] = (char)c;
-
-    /*int bytes_write = write(stream->_fd, stream->_buffer, stream->_buffer_pos);
-    if (bytes_write < 0)
-    {
-        printf("Eroare fputc!");
-        stream->_error = 1;
-
-        return SO_EOF;
-    }*/
-
-    // stream->_buffer_pos = 0;
-    // stream->_buffer[stream->_buffer_pos] = (char)c;
     stream->_buffer_pos++;
     stream->_lastOperation = 1;
     return c;
-    // stream->_lastOperation = 1;
 }
 
 int so_feof(SO_FILE *stream)
