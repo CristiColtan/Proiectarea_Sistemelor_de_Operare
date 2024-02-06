@@ -68,8 +68,6 @@ void find_files(int *numar_fisiere, fileStats *fisiere);
 void *index_thread_function(void *vargp);
 void trigger_reindexing();
 
-// pthread_mutex_t log_file_mutex = PTHREAD_MUTEX_INITIALIZER;
-
 typedef struct
 {
     fileStats *fisiere;
