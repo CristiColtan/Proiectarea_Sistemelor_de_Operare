@@ -10,8 +10,5 @@ libso_stdio.o: so_stdio.o
 main: main.c libso_stdio.so #testing
 	gcc main.c -o main -lso_stdio -L .
 
-#run:
-#	export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:.
-
-build:main
+build: main
 	export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:.
