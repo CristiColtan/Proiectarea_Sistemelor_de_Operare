@@ -8,7 +8,7 @@ typedef struct _so_file
     char _buffer[MAX_SIZE]; // buffering
     int _buffer_pos;        // pozitia in buffer
     int _file_pos;          // pozitia in fisier
-    int _eof;               // 0-nu end of file, 1-end of file
+    int _eof;               // 0-not end of file, 1-end of file
     int _lastOperation;     // 0-read, 1-write, 2-altceva
     pid_t _child_pid;       // pid copil
 
