@@ -1,0 +1,8 @@
+int a = 5;
+print a;
+print a;
+printf("Introdu_numar");
+scanf("Introdu_numar",&a) 6;
+print a;
+printf("Ai_introdus %d",a);
+printf("Ana_are %d mere",a);

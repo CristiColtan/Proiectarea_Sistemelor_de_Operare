@@ -1,0 +1,4 @@
+// Aceasta este o linie de comentariu
+int y = 5; /* Acesta este un comentariu
+pe mai multe linii */
+print y;
